@@ -6,8 +6,8 @@ services:
     ports:
       - 32400:32400
     environment:
-      - PLEX_UID=1000
-      - PLEX_GID=1000
+      - PUID=1000
+      - PGID=1000
       - TZ=Europe/London
       - HOSTNAME=luthor.bi-frost.local
       - PLEX_CLAIM=claim-UTSa62s5j4Kixx8qPXpG
