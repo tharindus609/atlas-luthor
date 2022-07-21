@@ -28,8 +28,21 @@ services:
     volumes:
       - /media/share:/data
       - sonarr_config:/config
+  tautulli:
+    container_name: tautulli
+    image: linuxserver/tautulli:latest
+    restart: unless-stopped
+    ports:
+      - 8181:8181
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - tautulli_config:/config
 
 volumes:
   plex_config:
   plex_trasnscode:
   sonarr_config:
+  tautulli_config:
