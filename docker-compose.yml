@@ -30,7 +30,7 @@ services:
       - sonarr_config:/config
   tautulli:
     container_name: tautulli
-    image: linuxserver/tautulli:latest
+    image: tautulli/tautulli:latest
     restart: unless-stopped
     ports:
       - 8181:8181
