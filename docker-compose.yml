@@ -1,0 +1,35 @@
+services:
+  plex:
+    container_name: plex
+    image: linuxserver/plex:latest
+    restart: unless-stopped
+    ports:
+      - 32400:32400
+    environment:
+      - PLEX_UID=1000
+      - PLEX_GID=1000
+      - TZ=Europe/London
+      - HOSTNAME=luthor.bi-frost.local
+      - PLEX_CLAIM=claim-UTSa62s5j4Kixx8qPXpG
+    volumes:
+      - /media/share:/data
+      - plex_config:/config
+      - plex_trasnscode:/transcode
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr:latest
+    restart: unless-stopped
+    ports:
+      - 8989:8989
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /media/share:/data
+      - sonarr_config:/config
+
+volumes:
+  plex_config:
+  plex_trasnscode:
+  sonarr_config:
