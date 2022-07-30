@@ -10,7 +10,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - HOSTNAME=luthor.bi-frost.local
-      - PLEX_CLAIM=claim-UTSa62s5j4Kixx8qPXpG
+      - PLEX_CLAIM=claim-DxREnAAz9H8KJLGgeTn9
     volumes:
       - media_data:/data
       - plex_config:/config
