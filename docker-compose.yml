@@ -12,7 +12,7 @@ services:
       - HOSTNAME=luthor.bi-frost.local
       - PLEX_CLAIM=claim-DxREnAAz9H8KJLGgeTn9
     volumes:
-      - media_data:/data
+      - /rust/media:/data
       - plex_config:/config
       - plex_trasnscode:/transcode
   sonarr:
@@ -26,7 +26,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - media_data:/data
+      - /rust/media:/data
       - sonarr_config:/config
   tautulli:
     container_name: tautulli
@@ -42,12 +42,6 @@ services:
       - tautulli_config:/config
 
 volumes:
-  media_data:
-    driver_opts:
-      type: nfs
-      o: "nfsvers=4,addr=127.0.0.1,rw"
-      device: ":/rust/media"
-
   plex_config:
     driver_opts:
       type: nfs
