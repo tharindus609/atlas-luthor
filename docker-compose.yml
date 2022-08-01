@@ -15,6 +15,7 @@ services:
       - /rust/media:/data
       - plex_config:/config
       - plex_trasnscode:/transcode
+  
   sonarr:
     container_name: sonarr
     image: linuxserver/sonarr:latest
@@ -28,6 +29,7 @@ services:
     volumes:
       - /rust/media:/data
       - sonarr_config:/config
+  
   tautulli:
     container_name: tautulli
     image: tautulli/tautulli:latest
@@ -51,10 +53,6 @@ volumes:
   plex_trasnscode:
 
   sonarr_config:
-    driver_opts:
-      type: nfs
-      o: "nfsvers=4,addr=127.0.0.1,rw"
-      device: ":/rust/nfs/container-vols/sonarr_config"
   
   tautulli_config:
     driver_opts:
