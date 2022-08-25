@@ -9,8 +9,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - HOSTNAME=luthor.bi-frost.local
-      - PLEX_CLAIM=claim-DxREnAAz9H8KJLGgeTn9
+      - HOSTNAME=luthor.bi-frost
+      - PLEX_CLAIM=claim-rQ7X7RJNx4rmXmaRiRzg
     volumes:
       - /rust/media:/data
       - plex_config:/config
