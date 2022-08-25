@@ -55,7 +55,3 @@ volumes:
   sonarr_config:
   
   tautulli_config:
-    driver_opts:
-      type: nfs
-      o: "nfsvers=4,addr=127.0.0.1,rw"
-      device: ":/rust/nfs/container-vols/tautulli_config"
