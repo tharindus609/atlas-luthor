@@ -3,7 +3,7 @@ services:
     container_name: plex
     image: linuxserver/plex:latest
     restart: unless-stopped
-    ports:
+    # ports:
       # - 32400:32400   #Default port
       # - 32469:32469   #SSL port
       # - 1900:1900/udp   #DLNA server
