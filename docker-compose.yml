@@ -17,7 +17,7 @@ services:
       - TZ=Europe/London
       - HOSTNAME=luthor.bi-frost
       - ADVERTISE_IP=http://olympus:32400/
-      # - PLEX_CLAIM=claim-hH9SHySyyvsnukmy28LW
+      - PLEX_CLAIM=claim-aG_m2kTFMkQ1YztW2uPv
     volumes:
       - /media:/media
       - plex_config:/config
