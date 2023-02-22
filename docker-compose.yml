@@ -3,9 +3,9 @@ services:
     container_name: plex
     image: linuxserver/plex:latest
     restart: unless-stopped
-    # ports:
-      # - 32400:32400   #Default port
-      # - 32469:32469   #SSL port
+    ports:
+      - 32400:32400   #Default port
+      - 32469:32469   #SSL port
       # - 1900:1900/udp   #DLNA server
       # - 32410:32410/udp   #GDM network discovery
       # - 32412:32412/udp   #GDM network discovery
@@ -16,13 +16,13 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - HOSTNAME=luthor.bi-frost
-      - ADVERTISE_IP="http://192.168.0.200:32400/"
-      - PLEX_CLAIM=claim-hH9SHySyyvsnukmy28LW
+      - ADVERTISE_IP=http://picore:32400/
+      # - PLEX_CLAIM=claim-hH9SHySyyvsnukmy28LW
     volumes:
-      - /rust/media:/data
+      - /media:/media
       - plex_config:/config
       - plex_trasnscode:/transcode
-    network_mode: host
+    # network_mode: host
 
   sonarr:
     container_name: sonarr
@@ -35,7 +35,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
     volumes:
-      - /rust/media:/data
+      - /media:/media
       - sonarr_config:/config
   
   tautulli:
