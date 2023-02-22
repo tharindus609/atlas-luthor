@@ -16,7 +16,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - HOSTNAME=luthor.bi-frost
-      - ADVERTISE_IP=http://picore:32400/
+      - ADVERTISE_IP=http://olympus:32400/
       # - PLEX_CLAIM=claim-hH9SHySyyvsnukmy28LW
     volumes:
       - /media:/media
