@@ -73,5 +73,7 @@ volumes:
   plex_trasnscode:
 
   sonarr_config:
+
+  radarr_config:
   
   tautulli_config:
