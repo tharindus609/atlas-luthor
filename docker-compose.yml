@@ -5,8 +5,8 @@ services:
     container_name: plex
     image: linuxserver/plex:latest
     restart: unless-stopped
-    # ports:
-      # - 32400:32400   #Default port
+    ports:
+      - 32400:32400   #Default port
       # - 32469:32469   #SSL port
       # - 1900:1900/udp   #DLNA server
       # - 32410:32410/udp   #GDM network discovery
@@ -18,7 +18,7 @@ services:
       - PGID=1000
       - TZ=Europe/London
       - HOSTNAME=luthor.bi-frost
-      # - ADVERTISE_IP=http://192.168.0.125:32400
+      - ADVERTISE_IP=http://192.168.0.125:32400
       - PLEX_CLAIM=claim-aG_m2kTFMkQ1YztW2uPv
     volumes:
       - /media:/media
