@@ -24,7 +24,7 @@ services:
       - /media:/media
       - plex_config:/config
       - plex_trasnscode:/transcode
-    network_mode: host
+    # network_mode: host
 
   sonarr:
     container_name: sonarr
