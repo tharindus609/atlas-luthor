@@ -3,7 +3,7 @@ version: "3"
 services:
   plex:
     container_name: plex
-    image: linuxserver/plex:latest
+    image: plexinc/pms-docker:latest
     restart: unless-stopped
     ports:
       - 32400:32400   #Default port
@@ -14,17 +14,14 @@ services:
       # - 32413:32413/udp   #GDM network discovery
       # - 32414:32414/udp   #GDM network discovery
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Europe/London
-      - HOSTNAME=luthor.bi-frost
       - ADVERTISE_IP=http://192.168.0.125:32400
       - PLEX_CLAIM=claim-aG_m2kTFMkQ1YztW2uPv
+    hostname: luthor.bi-frost
     volumes:
       - /media:/media
       - plex_config:/config
       - plex_trasnscode:/transcode
-    # network_mode: host
 
   sonarr:
     container_name: sonarr
@@ -66,6 +63,21 @@ services:
       - TZ=Europe/London
     volumes:
       - tautulli_config:/config
+  
+  jellyfin:
+    container_name: jellyfin
+    image: jellyfin/jellyfin:latest
+    restart: unless-stopped
+    user: 1000:1000
+    ports:
+      - 8096:8096   #Default port
+    environment:
+      - JELLYFIN_PublishedServerUrl=http://192.168.0.125:8096
+    hostname: jellyfin.bi-frost
+    volumes:
+      - /media:/media
+      - jellyfin_config:/config
+      - jellyfin_cache:/cache
 
 volumes:
   plex_config:
@@ -77,3 +89,7 @@ volumes:
   radarr_config:
   
   tautulli_config:
+
+  jellyfin_config:
+
+  jellyfin_cache:
